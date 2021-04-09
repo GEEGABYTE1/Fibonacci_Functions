@@ -19,7 +19,7 @@ def gameplay():
             for i in range(number):
                 lst.append(fibonacci_series(i))
                 #print(fibonacci_series(i))
-            traverse_list(lst)
+            print(traverse_list(lst))
             
             
         elif prompt == str(2):
@@ -45,7 +45,7 @@ def gameplay():
                         continue 
             
                 new_lst = new_lst[index: ]
-                traverse_list(new_lst)
+                print(traverse_list(new_lst))
         
         elif prompt == str(3):
             amount = int(input("Please type in the amount of values you would like to see from the series: "))
@@ -58,11 +58,11 @@ def gameplay():
             
             if not min_number in lst:
                 print("That value is not in the range you have provided! ")
-                traverse_list(lst)
+                print(traverse_list(lst))
             
             elif not max_number in lst:
                 print("That value is not in the range you have provided! ")
-                traverse_list(new_lst)
+                print(traverse_list(new_lst))
             else:
                 start_index = None 
                 end_index = None 
@@ -74,7 +74,7 @@ def gameplay():
                     else:
                         continue 
                 lst = lst[start_index: end_index]
-                traverse_list(lst)
+                print(traverse_list(lst))
 
         elif prompt == str(4):
             value = int(input('Please type in a value you would like to find: '))
@@ -110,8 +110,9 @@ def fibonacci_series(n):
     return n
 
 def traverse_list(lst):
-    for i in lst:
-        print(i)
+    if len(lst) == 0:
+        return 
+    return traverse_list(lst[:-1])
     
 
 gameplay()
